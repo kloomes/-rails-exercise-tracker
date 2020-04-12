@@ -1,5 +1,5 @@
 <h1>Stats Index</h1>
+<%= link_to "Add Stat", new_stat_path %>
 <% @stats.each do |stat| %>
-<p><%= stat.weight %></p>
-<p><%= stat.bf %></p>
+<p><%= stat.weight %>kg, <%= stat.bf %>% Body Fat, <%= stat.lean %>kg Lean Body Mass</p>
 <% end %>

@@ -6,4 +6,21 @@ class StatsController < ApplicationController
   def new
     @stat = Stat.new
   end
+
+  def create
+    @stat = Stat.new(stat_params)
+    @stat[:user_id] = current_user.id
+    @stat[:lean] = ((100 - @stat.bf) / 100) * @stat.weight
+    if @stat.save
+      redirect_to stats_path
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def stat_params
+    params.require(:stat).permit(:date, :weight, :bf, :lean)
+  end
 end

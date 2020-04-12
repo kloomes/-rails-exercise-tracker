@@ -18,6 +18,12 @@ class StatsController < ApplicationController
     end
   end
 
+  def destroy
+    @stat = Stat.find(params[:id])
+    @stat.destroy
+    redirect_to stats_path
+  end
+
   private
 
   def stat_params

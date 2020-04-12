@@ -1,4 +1,4 @@
-class Session < ApplicationRecord
+class Workout < ApplicationRecord
   has_many :cardios
   has_many :exercises
 

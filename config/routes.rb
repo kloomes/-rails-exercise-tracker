@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'sessions#index'
+  root to: 'workouts#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: [ :edit, :update, :show ] do
-    resources :sessions, only: [ :index, :new, :create ]
+    resources :workouts, only: [ :index, :new, :create ]
   end
   resources :stats, except: :show
-  resources :sessions, only: [ :show, :edit, :destroy ]
+  resources :workouts, only: [ :show, :edit, :destroy ]
   resources :cardios
   resources :exercises do
     resources :setsets, only: [ :index, :new, :create ]

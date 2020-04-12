@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_140337) do
+ActiveRecord::Schema.define(version: 2020_04_12_144151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,20 +41,6 @@ ActiveRecord::Schema.define(version: 2020_04_12_140337) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["session_id"], name: "index_exercises_on_session_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
-    t.integer "hours"
-    t.integer "minutes"
-    t.integer "seconds"
-    t.string "workout_type"
-    t.text "notes"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
   create_table "setsets", force: :cascade do |t|
@@ -94,9 +80,23 @@ ActiveRecord::Schema.define(version: 2020_04_12_140337) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "cardios", "sessions"
-  add_foreign_key "exercises", "sessions"
-  add_foreign_key "sessions", "users"
+  create_table "workouts", force: :cascade do |t|
+    t.date "date"
+    t.time "time"
+    t.integer "hours"
+    t.integer "minutes"
+    t.integer "seconds"
+    t.string "workout_type"
+    t.text "notes"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_workouts_on_user_id"
+  end
+
+  add_foreign_key "cardios", "workouts", column: "session_id"
+  add_foreign_key "exercises", "workouts", column: "session_id"
   add_foreign_key "setsets", "exercises"
   add_foreign_key "stats", "users"
+  add_foreign_key "workouts", "users"
 end

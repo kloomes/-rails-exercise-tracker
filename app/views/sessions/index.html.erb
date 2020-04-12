@@ -1,0 +1,5 @@
+<h1>Sessions Index</h1>
+<% @sessions.each do |session| %>
+<p><%= session.workout_type %></p>
+<p><%= session.hours %>:<%= session.minutes %>:<%= session.seconds %></p>
+<% end %>

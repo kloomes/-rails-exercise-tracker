@@ -24,6 +24,12 @@ class WorkoutsController < ApplicationController
     @cardios = Cardio.where(workout_id: @workout.id)
   end
 
+  def destroy
+    @workout = Workout.find(params[:id])
+    @workout.destroy
+    redirect_to root_path
+  end
+
   private
 
   def workout_params

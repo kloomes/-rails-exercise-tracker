@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+A simple exercise tracker for both cardio and weights. Planned expansion in the future to include nutriton and importing info.

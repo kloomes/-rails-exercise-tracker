@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_144151) do
+ActiveRecord::Schema.define(version: 2020_04_13_135834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cardios", force: :cascade do |t|
     t.string "exercise"
-    t.string "workout"
+    t.string "cardio_type"
     t.integer "hours"
     t.integer "minutes"
     t.integer "seconds"
@@ -28,19 +28,19 @@ ActiveRecord::Schema.define(version: 2020_04_12_144151) do
     t.integer "max_hr"
     t.integer "kcal"
     t.text "notes"
-    t.bigint "session_id", null: false
+    t.bigint "workout_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["session_id"], name: "index_cardios_on_session_id"
+    t.index ["workout_id"], name: "index_cardios_on_workout_id"
   end
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.text "notes"
-    t.bigint "session_id", null: false
+    t.bigint "workout_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["session_id"], name: "index_exercises_on_session_id"
+    t.index ["workout_id"], name: "index_exercises_on_workout_id"
   end
 
   create_table "setsets", force: :cascade do |t|
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 2020_04_12_144151) do
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
-  add_foreign_key "cardios", "workouts", column: "session_id"
-  add_foreign_key "exercises", "workouts", column: "session_id"
+  add_foreign_key "cardios", "workouts"
+  add_foreign_key "exercises", "workouts"
   add_foreign_key "setsets", "exercises"
   add_foreign_key "stats", "users"
   add_foreign_key "workouts", "users"

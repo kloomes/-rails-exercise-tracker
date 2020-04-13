@@ -30,6 +30,17 @@ class WorkoutsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @workout = Workout.find(params[:id])
+  end
+
+  def update
+    @workout = Workout.find(params[:id])
+    @workout.update_attributes(workout_params)
+    @workout.save
+    redirect_to root_path
+  end
+
   private
 
   def workout_params

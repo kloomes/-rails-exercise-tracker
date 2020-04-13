@@ -1,0 +1,11 @@
+<h1>Edit Workout</h1>
+<%= simple_form_for [@user, @workout] do |f| %>
+<%= f.input :date %>
+<%= f.input :time %>
+<%= f.input :hours %>
+<%= f.input :minutes %>
+<%= f.input :seconds %>
+<%= f.input :workout_type %>
+<%= f.input :notes %>
+<%= f.submit %>
+<% end %>

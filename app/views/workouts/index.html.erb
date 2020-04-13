@@ -1,5 +1,5 @@
 <h1>Workouts Index</h1>
 <% @workouts.each do |workout| %>
-<p><%= workout.workout_type %></p>
+<%= link_to workout.workout_type, workout_path(workout.id) %>
 <p><%= workout.hours %>:<%= workout.minutes %>:<%= workout.seconds %></p>
 <% end %>

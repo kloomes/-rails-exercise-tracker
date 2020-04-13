@@ -24,6 +24,13 @@ class StatsController < ApplicationController
     redirect_to stats_path
   end
 
+  def edit
+    @stat = Stat.find(params[:id])
+  end
+
+  def update
+  end
+
   private
 
   def stat_params

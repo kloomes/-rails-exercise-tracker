@@ -1,0 +1,15 @@
+<h1>Add Cardio</h1>
+<%= simple_form_for [@workout, @cardio] do |f| %>
+<%= f.input :cardio_type %>
+<%= f.input :distance %>
+<%= f.input :hours %>
+<%= f.input :minutes %>
+<%= f.input :seconds %>
+<%= f.input :pace %>
+<%= f.input :speed %>
+<%= f.input :avg_hr %>
+<%= f.input :max_hr %>
+<%= f.input :kcal %>
+<%= f.input :notes %>
+<%= f.submit %>
+<% end %>

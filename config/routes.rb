@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     resources :workouts, only: [ :index, :new, :create ]
   end
   resources :stats, except: :show
-  resources :workouts, only: [ :show, :edit, :update, :destroy ]
-  resources :cardios
+  resources :workouts, only: [ :show, :edit, :update, :destroy ] do
+    resources :cardios, only: [ :index, :new, :create ]
+  end
+  resources :cardios, only: [ :show, :edit, :update, :destroy ]
   resources :exercises do
     resources :setsets, only: [ :index, :new, :create ]
   end

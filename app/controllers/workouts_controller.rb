@@ -20,6 +20,8 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
+    @exercises = Exercise.where(workout_id: @workout.id)
+    @cardios = Cardio.where(workout_id: @workout.id)
   end
 
   private

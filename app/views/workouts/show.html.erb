@@ -5,3 +5,10 @@
 <p><%= @workout.hours %>:<%= @workout.minutes %><%= @workout.seconds %></p>
 <br>
 <hr>
+<% @exercises.each do |exercise| %>
+<p><%= exercise.name %></p>
+<% end %>
+<hr>
+<% @cardios.each do |cardio| %>
+<p><%= cardio.name %> - <%= cardio.hours %>:<%= cardio.minutes %>:<%= cardio.seconds %></p>
+<% end %>

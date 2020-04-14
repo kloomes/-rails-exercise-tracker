@@ -14,6 +14,13 @@ class CardiosController < ApplicationController
     end
   end
 
+  def destroy
+    @cardio = Cardio.find(params[:cardio_id])
+    @workout_id = @cardio.workout_id
+    @cardio.destroy
+    redirect_to workout_path(@workout_id)
+  end
+
   private
 
   def cardio_params

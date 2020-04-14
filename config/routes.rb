@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: [ :edit, :update, :show ] do
     resources :workouts, only: [ :index, :new, :create ] do
-      resources :cardios, only: [ :index, :new, :create ]
+      resources :cardios
       resources :exercises do
         resources :setsets, only: [ :index, :new, :create ]
       end
@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   end
   resources :stats, except: :show
   resources :workouts, only: [ :show, :edit, :update, :destroy ]
-  resources :cardios, only: [ :show, :edit, :update, :destroy ]
+  # resources :cardios, only: [ :show, :edit, :update, :destroy ]
   resources :setsets, only: [ :edit, :update, :destroy ]
 end

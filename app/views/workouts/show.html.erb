@@ -11,5 +11,5 @@
 <% end %>
 <hr>
 <% @cardios.each do |cardio| %>
-<p><%= cardio.name %> - <%= cardio.hours %>:<%= cardio.minutes %>:<%= cardio.seconds %></p>
+<p><%= cardio.name %> - <%= cardio.hours %>:<%= cardio.minutes %>:<%= cardio.seconds %> - <%= link_to "Delete", user_workout_cardio_path(user_id: current_user.id, workout_id: params[:id], cardio_id: cardio.id), method: :delete, data: { confirm: 'Are you sure?' }%></p>
 <% end %>

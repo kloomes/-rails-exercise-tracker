@@ -1,0 +1,16 @@
+<h1>Edit Cardio</h1>
+<%= simple_form_for @cardio, url: user_workout_cardio_path, method: :patch do |f| %>
+<%= f.input :name %>
+<%= f.input :cardio_type %>
+<%= f.input :distance %>
+<%= f.input :hours %>
+<%= f.input :minutes %>
+<%= f.input :seconds %>
+<%= f.input :pace %>
+<%= f.input :speed %>
+<%= f.input :avg_hr %>
+<%= f.input :max_hr %>
+<%= f.input :kcal %>
+<%= f.input :notes %>
+<%= f.submit %>
+<% end %>

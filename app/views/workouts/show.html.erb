@@ -4,6 +4,7 @@
 <p><%= @workout.workout_type %></p>
 <p><%= @workout.hours %>:<%= @workout.minutes %><%= @workout.seconds %></p>
 <br>
+<%= link_to "Add Cardio", new_user_workout_cardio_path(user_id: current_user.id, workout_id: params[:id]) %>
 <hr>
 <% @exercises.each do |exercise| %>
 <p><%= exercise.name %></p>

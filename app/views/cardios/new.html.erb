@@ -1,5 +1,6 @@
 <h1>Add Cardio</h1>
-<%= simple_form_for [@workout, @cardio] do |f| %>
+<%= simple_form_for Cardio.new, url: user_workout_cardios_path, method: :post do |f| %>
+<%= f.input :name %>
 <%= f.input :cardio_type %>
 <%= f.input :distance %>
 <%= f.input :hours %>

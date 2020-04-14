@@ -21,6 +21,10 @@ class CardiosController < ApplicationController
     redirect_to workout_path(@workout_id)
   end
 
+  def show
+    @cardio = Cardio.find(params[:cardio_id])
+  end
+
   private
 
   def cardio_params
